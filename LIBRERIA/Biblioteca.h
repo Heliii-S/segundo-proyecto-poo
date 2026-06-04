@@ -205,21 +205,30 @@ y busca aquel que tenga el id correspondiente
 @return
 */
 void Biblioteca::consultar_usuario(int id){
-    for(int i=0; i<10; i++){
+    for(int i=0; i<cant_usuarios; i++){
         if(usuarios[i].get_id_usuario() == id){
-            std::cout<< "\nNombre: " << usuarios[i].get_nombre();
-            std::cout<< "\nID: " << usuarios[i].get_id_usuario();
+            std::cout << "\nNombre: "
+                      << usuarios[i].get_nombre();
+            std::cout << "\nID: "
+                      << usuarios[i].get_id_usuario();
             if(usuarios[i].get_prestamo_activo()){
-                std::cout << "\n Tiene un prestamo activo";
+                std::cout << "\nTiene un prestamo activo";
+                for(int j=0; j<50; j++){
+                    if(registros[j].get_id_u() == id &&
+                       registros[j].get_estatus()){
+                        std::cout << "\nFecha de devolucion: " << registros[j].get_df() << "/" << registros[j].get_mf() << "/" << registros[j].get_af();
+                        break;
+                    }
+                }
             }
             else{
-                std::cout << "\n No tiene ningun prestamo activo";
+                std::cout << "\nNo tiene ningun prestamo activo";
             }
+            std::cout << std::endl;
             return;
         }
     }
-    std::cout << "No es es posible realizar la accion\n";
-    std::cout << "MOTIVO: Usuario no encontrado\n";
+    std::cout << "\nUsuario no encontrado\n";
 }
 
 /*
