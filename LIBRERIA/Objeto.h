@@ -34,16 +34,6 @@ class Objeto{
         void set_estado(bool);
 };
 
-/*
-mostrar_info
-Esta función muestra en pantalla los atributos del objeto
-@param 
-@return
-*/
-void Objeto::mostrar_info(){
-    std::cout << "Titulo: " << titulo << "\nEstado: " << estado << std::endl;
-}
-
 int Objeto::get_id(){
     return id;
 }
