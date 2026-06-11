@@ -176,21 +176,17 @@ void Biblioteca::mostrar_inventario(){
 }
 
 /*
-consultar_objeto
+consultar_estado_objeto
 Esta función recorre el arreglo inventario[]
 y busca aquel que tenga el id correspondiente
+para devolver la información relacionada con el id
 @param int que representa el id del objeto
 @return 
 */
 void Biblioteca::consultar_estado_objeto(int id){
     for(int i=0; i<cant_objetos; i++){
         if(inventario[i]->get_id() == id){
-            if(inventario[i]->get_estado()){
-                std::cout << "ESTADO: Disponible\n";
-            }
-            else{
-                std::cout << "ESTADO: No disponible\n";
-            }
+            inventario[i]->mostrar_info();
             return;
         }
     }
@@ -202,6 +198,7 @@ void Biblioteca::consultar_estado_objeto(int id){
 consultar_usuario
 Esta función recorre el arreglo usuarios[]
 y busca aquel que tenga el id correspondiente
+para devolver la información relacionada con el id
 @param int que representa el id del usuario
 @return
 */
